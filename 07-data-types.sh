@@ -10,7 +10,7 @@ echo "Sum is $SUM"
 #arrays
 
 FRUITS=("Banana" "Apple" "pappaya")
-echo "all movies are : ${MOVIES[@]}"
-echo "first movie is : ${MOVIES[00]}"
-echo "second movie is : ${MOVIES[1]}"
-echo "third movie is : ${MOVIES[2]}"
+echo "all fruitss are : ${FRUITS[@]}"
+echo "first fruit is : ${FRUITS[00]}"
+echo "second fruit is : ${FRUITS[1]}"
+echo "third fruit is : ${FRUITS[2]}"
