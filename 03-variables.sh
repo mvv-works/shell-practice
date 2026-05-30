@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "Please Enter Your User Names:"
-read USER_NAME
-echo "User Name is USER_NAME"
+PERSON1=$1 
+PERSON2=$2
 
-echo "Please Enter Your Password:"
-read -s PASSWD
-echo "Password is $PASSWD"
+echo "$PERSON1 : Hey $PERSON2, we are going to blast you!"
+echo "$PERSON2 : yes, please you are welcomeJ"
+echo "$PERSON1 : Hey $PERSON2 I am serious"
+echo "$PERSON2 : Hey $PERSON1,we are also serious"
