@@ -5,3 +5,4 @@ if [ $user_id -ne 0 ]; then
     echo "please run this script with root access"
 fi
 
+echo "continuing..."
