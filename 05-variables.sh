@@ -2,4 +2,4 @@
 
 TIME_STAMP = date
 
-echo "TIME_STAMP"
+echo "$TIME_STAMP"
