@@ -7,3 +7,15 @@ if [ $user_id -ne 0 ]; then
 fi
 
 echo "continuing..."
+
+#installing mysql
+
+echo "installing mysql"
+dnf install mysql -y
+
+if [ $? -ne 0 ]; then
+    echo "installing mysql failed ! "
+    exit 1
+else
+    echo "installling mysql success"
+fi
