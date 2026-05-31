@@ -8,20 +8,24 @@ fi
 
 echo "continuing..."
 
+
+echo "what to install:"
+read=var1
+
 #installing mysql
 
-dnf list installed mysql
+dnf list installed $var1
 
 if [ $? -ne 0 ]; then
-    echo "installing mysql"
-    dnf install mysql -y
+    echo "installing $var1"
+    dnf install $var1 -y
 
     if [ $? -ne 0 ]; then
-        echo "installing mysql failed ! "
+        echo "installing $var1 failed ! "
         exit 1
     else
-        echo "installling mysql success"
+        echo "installling $var1 success"
     fi
 else 
-    echo "mysql is already installed"
+    echo "$var1 is already installed"
 fi
