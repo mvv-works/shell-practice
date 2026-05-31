@@ -6,26 +6,42 @@ if [ $user_id -ne 0 ]; then
     exit 1
 fi
 
-echo "continuing..."
+
+# creating a function and keeping the instillation code in it
+# 1st arg -> what are you installing
+# 2nd arg -> exit code
+VALIDATE(){
+    if [ $2 -ne 0 ]; then
+        echo "installing $1 failed ! "
+        exit 1
+    else
+        echo "installling $1 success"
+    fi
+}
 
 
-echo "what to install:"
-read=var1
 
 #installing mysql
 
-dnf list installed $var1
+dnf list installed mysql
 
 if [ $? -ne 0 ]; then
-    echo "installing $var1"
-    dnf install $var1 -y
-
-    if [ $? -ne 0 ]; then
-        echo "installing $var1 failed ! "
-        exit 1
-    else
-        echo "installling $var1 success"
-    fi
+    echo "installing mysql"
+    dnf install mysql -y
+    VALIDATE MySQL $?   # 1st arg -> MySQL ; 2nd arg -> exit is based of previosu command
 else 
-    echo "$var1 is already installed"
+    echo "mysql is already installed"
+fi
+
+
+# installing nginx
+
+dnf list installed mysql
+
+if [ $? -ne 0 ]; then
+    echo "installing mysql"
+    dnf install nginx -y
+    VALIDATE nginx $?   # 1st arg -> nginx ; 2nd arg -> exit is based of previosu command
+else 
+    echo "nginx is already installed"
 fi
