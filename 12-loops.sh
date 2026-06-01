@@ -35,7 +35,6 @@ do
     else
         echo "$TIMESTAMP [INFO] $package is already insalled.. skipping"
     fi
-
 done
 
 
