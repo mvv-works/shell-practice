@@ -3,6 +3,7 @@ user_id=$(id -u)
 
 LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log"  # /home/ec2-user/shell-logs/10-logs.sh.log
+TIMESTAMP=$(date "+%Y-%m-%d  %H:%M:%S")
 
 # check root access or not
 if [ $user_id -ne 0 ]; then
@@ -16,10 +17,10 @@ fi
 # 2nd arg -> exit code
 VALIDATE(){
     if [ $2 -ne 0 ]; then
-        echo "installing $1 failed ! "
+        echo "$TIMESTAMP [ERROR] installing $1 failed ! " | tee -a $LOGS_FILE
         exit 1
     else
-        echo "installling $1 success"
+        echo "$TIMESTAMP [INFO] installling $1 success" | tee -a $LOGS_FILE
     fi
 }
 
@@ -27,6 +28,13 @@ VALIDATE(){
 for package in $@
 do 
     echo "installing $package"
+    dnf list installed $package &>> $LOGS_FILE
+    if [ $? -ne 0 ]; then
+        dnf install $package -y &>> $LOGS_FILE
+        VALIDATE "installing $package" $?
+    else
+        echo "$package is already insalled.. skipping"
+    fi
 
 done
 
