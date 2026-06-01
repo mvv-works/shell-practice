@@ -28,9 +28,9 @@ VALIDATE(){
 for package in $@
 do 
     echo "$TIMESTAMP [INFO] installing $package"
-    dnf list installed $package &>> $LOGS_FILE
+    dnf list installed $package #&>> $LOGS_FILE
     if [ $? -ne 0 ]; then
-        dnf install $package -y &>> $LOGS_FILE
+        dnf install $package -y #&>> $LOGS_FILE
         VALIDATE "installing $package" $?
     else
         echo "$TIMESTAMP [INFO] $package is already insalled.. skipping"
