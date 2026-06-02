@@ -12,7 +12,7 @@ N="\e[0m"
 
 # check root access or not
 if [ $user_id -ne 0 ]; then
-    echo -e "please run this script with root access"
+    echo "please run this script with root access"
     exit 1
 fi
 
@@ -38,7 +38,7 @@ do
         dnf install $package -y &>> $LOGS_FILE
         VALIDATE "installing $package" $?
     else
-        echo "$TIMESTAMP [INFO] $package is already insalled.. $Y skipping $N"
+        echo -e "$TIMESTAMP [INFO] $package is already insalled.. $Y skipping $N"
     fi
 done
 
