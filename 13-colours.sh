@@ -12,7 +12,7 @@ N="\e[0m"
 
 # check root access or not
 if [ $user_id -ne 0 ]; then
-    echo "please run this script with root access"
+    echo -e "please run this script with root access"
     exit 1
 fi
 
@@ -22,10 +22,10 @@ fi
 # 2nd arg -> exit code
 VALIDATE(){
     if [ $2 -ne 0 ]; then
-        echo "$TIMESTAMP [ERROR] installing $1 $R failed $N ! " | tee -a $LOGS_FILE
+        echo -e "$TIMESTAMP [ERROR] installing $1 $R failed $N ! " | tee -a $LOGS_FILE
         exit 1
     else
-        echo "$TIMESTAMP [INFO] installling $1 $G success $N" | tee -a $LOGS_FILE
+        echo -e "$TIMESTAMP [INFO] installling $1 $G success $N" | tee -a $LOGS_FILE
     fi
 }
 
