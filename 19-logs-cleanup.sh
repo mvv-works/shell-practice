@@ -28,7 +28,7 @@ do
     rm -f $FILE
     echo "File $FILE Deleted"
 
-done <<< "$FIELS"    
+done <<< "$FILES"    
 
 # <  -->for file
 # <<<  -->variable
