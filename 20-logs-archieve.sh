@@ -42,7 +42,7 @@ if [ $? -eq 0 ]; then
     while IFS= read -r FILE
     do 
         rm -f $FILE
-        echo "Delete file: $FILE"
+        echo "Deleted file: $FILE"
     done <<< "$FILES"
 else
     echo "ERROR:: Archieval is failed"
