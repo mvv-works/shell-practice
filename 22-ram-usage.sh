@@ -17,4 +17,4 @@ done <<< "$RAM_USAGE"
 
 echo -e "$MESSAGE"
 
-sh mail.sh "DevOps Team" "High Disk usage" "$SERVER_IP" "$MESSAGE" "vijayvamsi550@gmail.com" "High Disk usage Alert"
+sh mail.sh "DevOps Team" "High RAM usage" "$SERVER_IP" "$MESSAGE" "vijayvamsi550@gmail.com" "High RAM usage Alert"
